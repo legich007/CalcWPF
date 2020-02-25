@@ -1,0 +1,101 @@
+﻿<Window x:Name="MainWindow1" x:Class="CalculatorWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CalculatorWPF"
+        mc:Ignorable="d"
+        Title="Simple Calculator" Height="350" Width="500"  WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Topmost="True" HorizontalAlignment="Center" Cursor="Hand">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="2" />
+        </Style>
+    </Window.Resources>
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black" Offset="0"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid x:Name="MainGrid" ShowGridLines="True" Width="500" Height="400" UseLayoutRounding="False" >
+
+
+        <TextBox  x:Name="OutputDisplay" HorizontalAlignment="Left" Height="39" Margin="16,41,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="313" TextAlignment="Right" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" FontSize="20" VerticalContentAlignment="Center"/>
+        <Menu  x:Name="MainMenu"  VerticalAlignment="Top" HorizontalAlignment="Left" Width="500">
+            <MenuItem Header="File">
+                <MenuItem Header="Open">
+                    <Button Content="..." />
+                    <TextBox Width="200" />
+                </MenuItem>
+                <MenuItem Header="Exit" />
+            </MenuItem>
+            <MenuItem Header="View" >
+                <MenuItem x:Name="ClassicTool" Header="Classic" Click="ClassicTool_Click" />
+                <MenuItem x:Name="EngeneerTool" Header="Engeneer" Click="EngeneerTool_Click" />
+            </MenuItem>
+        </Menu>
+        <Grid x:Name="ButtonGrid"  Margin="16,95,168,102" >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="0" x:Name="KeySeven"  Content="7" Click="KeySeven_Click"/>
+            <Button Grid.Row="1" Grid.Column="0" x:Name="KeyFour"  Content="4" Click="KeyFour_Click"/>
+            <Button Grid.Row="2" Grid.Column="0" x:Name="KeyOne"  Content="1" Click="KeyOne_Click"/>
+            <Button Grid.Row="3" Grid.Column="0" x:Name="KeyZero"  Content="0" Click="Button_Click"/>
+            <Button Grid.Row="0" Grid.Column="1" x:Name="KeyEight"  Content="8" Click="KeyEight_Click"/>
+            <Button Grid.Row="1" Grid.Column="1" x:Name="KeyFive"  Content="5" Click="KeyFive_Click"/>
+            <Button Grid.Row="2" Grid.Column="1" x:Name="KeyTwo"  Content="2" Click="KeyTwo_Click"/>
+            <Button Grid.Row="3" Grid.Column="1"  Content="." Click="Button_Click_1"/>
+            <Button Grid.Row="0" Grid.Column="2" x:Name="KeyNine"  Content="9" Click="KeyNine_Click"/>
+            <Button Grid.Row="1" Grid.Column="2" x:Name="KeySix"  Content="6" Click="KeySix_Click"/>
+            <Button Grid.Row="2" Grid.Column="2" x:Name="KeyThree"  Content="3" Click="KeyThree_Click"/>
+            <Button Grid.Row="3" Grid.Column="2"  Content="+/-" Click="Button_Click_2"/>
+            <Button Grid.Row="0" Grid.Column="3" x:Name="KeyDivide"  Content="/" Click="KeyDivide_Click" ToolTip="Деление" />
+            <Button Grid.Row="1" Grid.Column="3" x:Name="KeyMultiply"  Content="*" Click="KeyMultiply_Click" ToolTip="Умножение"/>
+            <Button Grid.Row="2" Grid.Column="3" x:Name="KeyMinus"  Content="-" Click="KeyMinus_Click" ToolTip="Вычитание"/>
+            <Button Grid.Row="3" Grid.Column="3" x:Name="KeyPlus"  Content="+" Click="KeyPlus_Click" ToolTip="Сложение"/>
+            <Button Grid.Row="0" Grid.Column="4" x:Name="KeyClear"  Content="C" Click="KeyClear_Click" ToolTip="Очистить"/>
+            <Button Grid.Row="1" Grid.Column="4" x:Name="KeyDate"  Content="Date" Click="KeyDate_Click" ToolTip="Дата"/>
+            <Button Grid.Row="2" Grid.Column="4" x:Name="KeyExit"  Content="Exit" Click="KeyExit_Click" ToolTip="Выход"/>
+            <Button Grid.Row="3" Grid.Column="4" x:Name="KeyEqual"  Content="=" Click="KeyEqual_Click" ToolTip="Результат"/>
+
+        </Grid>
+        <Grid Margin="344,95,43,102">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="0" x:Name="KeyDegree"  Content="X^Y" Click="KeyDegree_Click" ToolTip="Возведение в степень" />
+            <Button Grid.Row="1" Grid.Column="0" x:Name="KeySQRT"  Content="SQRT" Click="KeySQRT_Click" ToolTip="Корень"/>
+            <Button Grid.Row="2" Grid.Column="0" x:Name="KeyReverse"  Content="1/X" Click="KeyReverse_Click" ToolTip="Обратное значение" />
+            <Button Grid.Row="3" Grid.Column="0" x:Name="KeyDegree2"  Content="X^2" Click="KeyDegree2_Click" ToolTip="Число в степени 2" />
+            <Button Grid.Row="0" Grid.Column="1" x:Name="KeyFactorial"  Content="X!" Click="KeyFactorial_Click" ToolTip="Факториал" />
+            <Button Grid.Row="1" Grid.Column="1" x:Name="KeyCBRT"  Content="CBRT" Click="KeyCBRT_Click" ToolTip="Кубический корень"/>
+            <Button Grid.Row="2" Grid.Column="1" x:Name="KeyQE"  Content="QE" Click="KeyQE_Click" ToolTip="Квадратное уравнение" Grid.RowSpan="2" />
+
+        </Grid>
+
+
+
+
+    </Grid>
+</Window>
